@@ -1,83 +1,3 @@
-// Double calendar
-// // App.tsx
-// import React, { useState } from "react";
-// import { DateRangePicker, DateRange } from "react-date-range";
-// import "react-date-range/dist/styles.css";
-// import "react-date-range/dist/theme/default.css";
-// import "./App.css";
-
-// interface Reservation {
-//     id: number;
-//     startDate: Date;
-//     endDate: Date | null;
-// }
-
-// const App: React.FC = () => {
-//     const [state, setState] = useState({
-//         selection: {
-//             startDate: new Date(),
-//             endDate: null as Date | null,
-//             key: "selection",
-//         },
-//         compare: {
-//             startDate: new Date(),
-//             endDate: new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000), // 3 days later
-//             key: "compare",
-//         },
-//     });
-
-//     const handleDateChange = (ranges: { [key: string]: DateRange }) => {
-//         setState((prev) => ({
-//             ...prev,
-//             ...ranges,
-//         }));
-//     };
-
-//     const reservations: Reservation[] = [
-//         { id: 1, ...state.selection },
-//         { id: 2, ...state.compare },
-//     ];
-
-//     return (
-//         <div className="app-container">
-//             <div className="calendar-container">
-//                 <DateRangePicker
-//                     onChange={handleDateChange}
-//                     months={1}
-//                     minDate={new Date()}
-//                     maxDate={new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000)} // 30 days later
-//                     direction="vertical"
-//                     scroll={{ enabled: true }}
-//                     ranges={[state.selection, state.compare]}
-//                 />
-//             </div>
-//             <div className="reservation-table">
-//                 <h2>Reservations</h2>
-//                 <table>
-//                     <thead>
-//                         <tr>
-//                             <th>ID</th>
-//                             <th>Start Date</th>
-//                             <th>End Date</th>
-//                         </tr>
-//                     </thead>
-//                     <tbody>
-//                         {reservations.map((reservation) => (
-//                             <tr key={reservation.id}>
-//                                 <td>{reservation.id}</td>
-//                                 <td>{reservation.startDate.toString()}</td>
-//                                 <td>{reservation.endDate?.toString() || "N/A"}</td>
-//                             </tr>
-//                         ))}
-//                     </tbody>
-//                 </table>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default App;
-
 // src/App.tsx
 import React, { useState } from "react";
 import { DateRangePicker, DateRange } from "react-date-range";
@@ -172,3 +92,83 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+// Double calendar
+// // App.tsx
+// import React, { useState } from "react";
+// import { DateRangePicker, DateRange } from "react-date-range";
+// import "react-date-range/dist/styles.css";
+// import "react-date-range/dist/theme/default.css";
+// import "./App.css";
+
+// interface Reservation {
+//     id: number;
+//     startDate: Date;
+//     endDate: Date | null;
+// }
+
+// const App: React.FC = () => {
+//     const [state, setState] = useState({
+//         selection: {
+//             startDate: new Date(),
+//             endDate: null as Date | null,
+//             key: "selection",
+//         },
+//         compare: {
+//             startDate: new Date(),
+//             endDate: new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000), // 3 days later
+//             key: "compare",
+//         },
+//     });
+
+//     const handleDateChange = (ranges: { [key: string]: DateRange }) => {
+//         setState((prev) => ({
+//             ...prev,
+//             ...ranges,
+//         }));
+//     };
+
+//     const reservations: Reservation[] = [
+//         { id: 1, ...state.selection },
+//         { id: 2, ...state.compare },
+//     ];
+
+//     return (
+//         <div className="app-container">
+//             <div className="calendar-container">
+//                 <DateRangePicker
+//                     onChange={handleDateChange}
+//                     months={1}
+//                     minDate={new Date()}
+//                     maxDate={new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000)} // 30 days later
+//                     direction="vertical"
+//                     scroll={{ enabled: true }}
+//                     ranges={[state.selection, state.compare]}
+//                 />
+//             </div>
+//             <div className="reservation-table">
+//                 <h2>Reservations</h2>
+//                 <table>
+//                     <thead>
+//                         <tr>
+//                             <th>ID</th>
+//                             <th>Start Date</th>
+//                             <th>End Date</th>
+//                         </tr>
+//                     </thead>
+//                     <tbody>
+//                         {reservations.map((reservation) => (
+//                             <tr key={reservation.id}>
+//                                 <td>{reservation.id}</td>
+//                                 <td>{reservation.startDate.toString()}</td>
+//                                 <td>{reservation.endDate?.toString() || "N/A"}</td>
+//                             </tr>
+//                         ))}
+//                     </tbody>
+//                 </table>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default App;

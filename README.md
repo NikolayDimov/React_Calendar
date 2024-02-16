@@ -23,3 +23,5 @@ npm install react-date-range
 # or
 yarn add react-date-range
 ```
+
+Resourses: https://hypeserver.github.io/react-date-range/
