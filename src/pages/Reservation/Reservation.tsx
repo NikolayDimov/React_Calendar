@@ -26,7 +26,7 @@ const ReservationTable: React.FC<ReservationTableProps> = ({ reservations }) => 
                     {reservations.map((reservation, index) => (
                         <tr key={index}>
                             <td>{index + 1}</td>
-                            <td>{reservation.startDate.toString() || "N/A"}</td>
+                            <td>{reservation.startDate?.toString() || "N/A"}</td>
                             <td>{reservation.endDate?.toString() || "N/A"}</td>
                             <td>{reservation.startTime}</td>
                             <td>{reservation.endTime}</td>

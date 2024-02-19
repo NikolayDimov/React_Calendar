@@ -35,35 +35,39 @@ const CalendarPage: React.FC<{ reservations: Reservation[]; onAddReservation: (n
     const handleMakeReservation = () => {
         const selectedStartTime = selectedTime.startTime;
         const selectedEndTime = selectedTime.endTime;
-        const formattedStartDate = state[0]?.startDate;
+        const formattedStartDate = state[0]?.startDate ? new Date(state[0]?.startDate) : null;
         const formattedEndDate = state[0]?.endDate ? new Date(state[0]?.endDate) : null;
 
-        if (formattedEndDate) {
-            formattedEndDate.setHours(parseInt(selectedEndTime.split(":")[0], 10));
-            formattedEndDate.setMinutes(parseInt(selectedEndTime.split(":")[1], 10));
+        if (formattedStartDate) {
+            formattedStartDate.setHours(parseInt(selectedStartTime.split(":")[0], 10));
+            formattedStartDate.setMinutes(parseInt(selectedStartTime.split(":")[1], 10));
         }
 
-        const newStartDate = formattedStartDate || new Date();
-        const newEndDate = formattedEndDate || null;
+        if (formattedEndDate) {
+            const newFormattedEndDate = new Date(formattedEndDate);
+            newFormattedEndDate.setHours(parseInt(selectedEndTime.split(":")[0], 10));
+            newFormattedEndDate.setMinutes(parseInt(selectedEndTime.split(":")[1], 10));
+            const newEndDate = newFormattedEndDate;
 
-        const newReservation: Reservation = {
-            id: reservations.length + 1,
-            startDate: newStartDate,
-            endDate: newEndDate,
-            ...selectedTime,
-        };
-
-        onAddReservation(newReservation);
-
-        console.log(`Reservation made from ${formattedStartDate?.toString()} ${selectedStartTime} to ${formattedEndDate?.toString()} ${selectedEndTime} GMT+0200`);
-
-        setState([
-            {
-                startDate: newStartDate,
+            const newReservation: Reservation = {
+                id: reservations.length + 1,
+                startDate: formattedStartDate,
                 endDate: newEndDate,
-                key: "selection",
-            },
-        ]);
+                ...selectedTime,
+            };
+
+            onAddReservation(newReservation);
+
+            console.log(`Reservation made from ${formattedStartDate?.toString()} ${selectedStartTime} to ${newEndDate?.toString()} ${selectedEndTime} GMT+0200`);
+
+            setState([
+                {
+                    startDate: formattedStartDate || new Date(),
+                    endDate: newEndDate || new Date(),
+                    key: "selection",
+                },
+            ]);
+        }
     };
 
     const startHour = 9;
