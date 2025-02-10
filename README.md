@@ -1,30 +1,53 @@
-# React + TypeScript + Vite
+# Calendar Reservation App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple React application that allows users to select a date range and time slots to make reservations.
 
-Currently, two official plugins are available:
+## Features
+- Date selection using `react-date-range`.
+- Time selection using `react-select`.
+- Prevents invalid time selections.
+- Displays available time slots dynamically.
+- Supports reservations for the next two years.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+### Prerequisites
+- Node.js (v22.9.0 recommended)
+- Yarn (package manager)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Steps
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   cd <project-directory>
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+## Usage
+- Select a start and end date using the date picker.
+- Choose a start time from the dropdown.
+- Select an end time (only available options are enabled based on start time).
+- Click "Make Reservation" to confirm.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Dependencies
+- `react`: UI library
+- `react-date-range`: Date picker component
+- `react-select`: Custom select dropdown
+- `date-fns`: Date utility functions
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## License
+This project is licensed under the MIT License.
+
+## Screenshot
+
+![React Calendar](./assets/react_calendar.png)
+
+
+
